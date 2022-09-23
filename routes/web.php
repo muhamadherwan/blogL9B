@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Game1Controller;
@@ -15,9 +17,11 @@ use App\Http\Controllers\Game1Controller;
 */
 //Route::resource('games', Game1Controller::class);
 
-Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])
+Route::get('/', [HomeController::class, 'index'])
     ->name('home');
 Route::view('about', view:'about')->name('about');
 Route::view('contact', view:'contact')->name('contact');
+
+Route::get('posts/{post}', [PostController::class,'show'])->name('posts.show');
 
 
