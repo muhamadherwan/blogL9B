@@ -13,11 +13,12 @@ use App\Http\Controllers\Game1Controller;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('index');
-});
-
-
-
 //Route::resource('games', Game1Controller::class);
+
+Route::view('/', view:'index');
+
+Route::view('about', view:'about');
+
+Route::view('contact', view:'contact');
+
+
