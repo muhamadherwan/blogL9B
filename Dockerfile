@@ -36,3 +36,11 @@ ENV PORT=8081
 RUN chmod +x Docker/entrypoint.sh
 #RUN chmod 755 Docker/entrypoint.sh
 ENTRYPOINT [ "Docker/entrypoint.sh" ]
+
+# Create user based on provided user ID
+#ARG HOST_UID
+ENV HOST_UID=1000
+RUN adduser --disabled-password --gecos "" --uid $HOST_UID demo
+
+# Switch to that user
+USER demo

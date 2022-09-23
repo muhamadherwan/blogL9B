@@ -15,7 +15,8 @@ use App\Http\Controllers\Game1Controller;
 */
 //Route::resource('games', Game1Controller::class);
 
-Route::view('/', view:'index')->name('home');
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])
+    ->name('home');
 Route::view('about', view:'about')->name('about');
 Route::view('contact', view:'contact')->name('contact');
 
